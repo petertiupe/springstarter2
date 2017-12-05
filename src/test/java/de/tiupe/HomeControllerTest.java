@@ -1,6 +1,6 @@
 package de.tiupe;
 
-import de.tiupe.services.HomeController;
+import de.tiupe.controller.HomeController;
 import org.junit.Test;
 import org.springframework.test.web.servlet.MockMvc;
 

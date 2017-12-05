@@ -16,7 +16,12 @@ public class NewsRepo implements NewsRepository {
     }
 
     public List<News> getAllNews(){
-        return this.newsList;
+        if(newsList.isEmpty()){
+            return this.getNumberOfNews(100);
+        }else{
+            return this.newsList;
+        }
+
     }
 
     public List<News> getNumberOfNews(Integer number){
