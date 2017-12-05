@@ -14,12 +14,17 @@
           href="<c:url value="/resources/style.css" />" >
 </head>
 <body>
+
+<c:forEach items="${errors}" var ="error">
+    ${error}
+</c:forEach>
+
 <h1>Register</h1>
 <form method="POST">
-    First Name: <input type="text" name="vorname" /><br/>
-    Last Name: <input type="text" name="nachname" /><br/>
-    Username: <input type="text" name="username" /><br/>
-    Password: <input type="password" name="passwort" /><br/>
+    First Name: <input type="text" name="vorname" value="${user.vorname}" /><br/>
+    Last Name: <input type="text" name="nachname" value="${user.nachname}"/><br/>
+    Username: <input type="text" name="username" value"${user.username}"/><br/>
+    Password: <input type="password" name="passwort" value="${user.passwort}"/><br/>
     <input type="submit" value="Register" />
 </form>
 </body>

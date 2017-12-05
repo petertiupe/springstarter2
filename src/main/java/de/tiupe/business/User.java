@@ -1,8 +1,11 @@
 package de.tiupe.business;
 
+import javax.validation.constraints.Size;
+
 public class User {
     private String nachname;
     private String vorname;
+    @Size(min = 4)
     private String username;
     private String passwort;
 

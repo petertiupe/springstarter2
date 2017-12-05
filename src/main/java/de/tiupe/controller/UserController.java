@@ -6,9 +6,12 @@ import de.tiupe.business.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/user")
@@ -24,7 +27,13 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value="/register")
-    public String saveUser(User aUser){
+
+    public String saveUser(Model aModel, @Valid User aUser, Errors errors) {
+        if (errors.hasErrors()) {
+            aModel.addAttribute("user", aUser);
+            aModel.addAttribute("errors", errors.getFieldErrors());
+            return "register";
+        }
         this.userRepo.save(aUser);
         return "redirect:/user/find/" + aUser.getUsername();
     }
