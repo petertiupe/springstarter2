@@ -27,7 +27,6 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value="/register")
-
     public String saveUser(Model aModel, @Valid User aUser, Errors errors) {
         if (errors.hasErrors()) {
             aModel.addAttribute("user", aUser);

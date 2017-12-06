@@ -18,6 +18,9 @@ public class User {
     private String vorname;
     @Size(min = 4)
     private String username;
+
+
+
     private String passwort;
 
     public String getNachname() {
@@ -50,5 +53,13 @@ public class User {
 
     public void setPasswort(String passwort) {
         this.passwort = passwort;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
