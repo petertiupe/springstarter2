@@ -25,7 +25,7 @@ public class DatabaseConfig {
     public BasicDataSource dataSource() {
         BasicDataSource ds = new BasicDataSource();
         ds.setDriverClassName("org.h2.Driver");
-        ds.setUrl("jdbc:h2:file:C:/Users/R606-05/data/springdb");
+        ds.setUrl("jdbc:h2:mem:test");
         ds.setUsername("sa");
         ds.setPassword("");
         ds.setInitialSize(5);
