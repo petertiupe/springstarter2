@@ -23,8 +23,11 @@
 <form method="POST">
     First Name: <input type="text" name="vorname" value="${user.vorname}" /><br/>
     Last Name: <input type="text" name="nachname" value="${user.nachname}"/><br/>
-    Username: <input type="text" name="username" value"${user.username}"/><br/>
+    Username: <input type="text" name="username" value="${user.username}"/><br/>
     Password: <input type="password" name="passwort" value="${user.passwort}"/><br/>
+    <input type="hidden"
+           name="${_csrf.parameterName}"
+           value="${_csrf.token}" />
     <input type="submit" value="Register" />
 </form>
 </body>
