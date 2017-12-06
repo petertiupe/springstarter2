@@ -8,6 +8,6 @@ import org.springframework.context.annotation.Import;
 
 @Configuration
 @ComponentScan(basePackages={"de.tiupe.business"})
-@Import({SecurityConfig.class, DatabaseConfig.class, CacheConfig.class})
+@Import({SecurityConfig.class, DatabaseConfig.class, CacheConfig.class, JMXConfig.class})
 public class RootConfig {
 }
