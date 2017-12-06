@@ -1,5 +1,6 @@
 package de.tiupe.business;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -15,7 +16,7 @@ public class NewsRepo implements NewsRepository {
         this.newsList.add(aNews);
     }
 
-    public List<News> getAllNews(){
+    public List<News> getAllNews() {
         if(newsList.isEmpty()){
             return this.getNumberOfNews(100);
         }else{
@@ -24,8 +25,15 @@ public class NewsRepo implements NewsRepository {
 
     }
 
+    @Cacheable("newsCache")
     public List<News> getNumberOfNews(Integer number){
+
         List<News> lstToReturn = new ArrayList<News>();
+        try{
+            Thread.sleep(6000);
+        }catch(Exception ex){
+            System.out.println("Fehler beim Schlafen");
+        }
         for(int i = 0; i < number; ++ i){
             News myNews = new News("Peter wars", "Heute war es Peter", LocalDateTime.now());
             lstToReturn.add(myNews);
