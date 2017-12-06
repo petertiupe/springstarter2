@@ -5,7 +5,7 @@ import de.tiupe.config.WebConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
-
+    // Hier kommt der Kommentar
     @Override
     protected String[] getServletMappings() {
         return new String[]{"/"};
