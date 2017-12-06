@@ -1,8 +1,19 @@
 package de.tiupe.business;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.Size;
 
+// Hibernate Annotation
+@Entity
 public class User {
+
+    // Hibernate-Annotation, um das Objekt zu erzeugen.
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String nachname;
     private String vorname;
     @Size(min = 4)
