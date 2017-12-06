@@ -9,28 +9,30 @@ import java.util.List;
 @Component
 public class NewsRepo implements NewsRepository {
 
-    public List<News> newsList;
+    public List<News> newsList = new ArrayList<News>();
 
-    public void addNews(News aNews){
+    public void addNews(News aNews) {
         this.newsList.add(aNews);
     }
 
-    public List<News> getAllNews(){
-        if(newsList.isEmpty()){
+    public List<News> getAllNews() {
+        if (newsList.isEmpty()) {
             return this.getNumberOfNews(100);
-        }else{
+        } else {
             return this.newsList;
         }
 
     }
 
-    public List<News> getNumberOfNews(Integer number){
-        List<News> lstToReturn = new ArrayList<News>();
-        for(int i = 0; i < number; ++ i){
-            News myNews = new News("Peter wars", "Heute war es Peter", LocalDateTime.now());
-            lstToReturn.add(myNews);
+    public List<News> getNumberOfNews(Integer number) {
+        if(this.newsList.size() < number) {
+            for (int i = 0; i < number; ++i) {
+                News myNews = new News("Peter wars", "Heute war es Peter", LocalDateTime.now());
+                this.newsList.add(myNews);
+
+            }
         }
-        return lstToReturn;
+        return newsList.subList(0, number);
     }
 
 }
